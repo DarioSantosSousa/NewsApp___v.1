@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 export default class MyList extends Component {
     state = {
@@ -51,24 +51,21 @@ export default class MyList extends Component {
     renderList = () => {
         return (this.state.data.map((u) => {
             return (
-                <TouchableOpacity key={u.id}>
-                    <View style={{ padding: 10 }}>
-                        <Image source={ u.image } />
-                        <Text style={{ fontSize: 15 }}>{u.title}</Text>
-                        <Text>{u.text}</Text>
+                <TouchableOpacity key={u.id} style={{ backgroundColor: '#1a1a1a' }}>
+                    <View style={{ marginTop: 1, }}>
+                        <Image style={{ width: 375, height: 150, alignSelf: 'center', borderColor: '#ffffff', borderWidth: 0.5 }} source={u.image} />
+                        <Text style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 15, color: '#ffffff' }}>{u.title}</Text>
+                        <Text style={{ textAlign: 'center', fontWeight: '300', fontSize: 15, color: '#ffffff' }}>{u.text}</Text>
                     </View>
-                </TouchableOpacity>);
+                </TouchableOpacity>
+            );
         })
         );
     }
 
     render() {
         return (
-            <ScrollView onScroll={({ nativeEvent }) => {
-                if (this.isCloseToBottom(nativeEvent) && this.state.hasMore) {
-                    this.getListOfData();
-                }
-            }}>
+            <ScrollView >
                 {this.renderList()}
             </ScrollView>
         );

@@ -10,7 +10,7 @@ export default class MyList extends Component {
         hasMore: true
     }
 
-    componentWillMount() { this.getListOfPictures(); };
+    componentDidMount() { this.getListOfPictures(); };
 
     getListOfData = () => {
         if (this.state.loading) { return; }

@@ -53,7 +53,7 @@ export default class MyList extends Component {
             return (
                 <TouchableOpacity key={u.id}>
                     <View style={{ padding: 10 }}>
-                        <Image source={u.image} />
+                        <Image source={ u.image } />
                         <Text style={{ fontSize: 15 }}>{u.title}</Text>
                         <Text>{u.text}</Text>
                     </View>
